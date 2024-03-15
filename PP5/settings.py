@@ -63,7 +63,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 DEBUG = 'DEV' in os.environ
 
 ALLOWED_HOSTS = ['8000-85rhrl-pp5-x7b645b2tit.ws-eu110.gitpod.io', 
-                'pp5-85rhrl.herokuapp.com']
+                'pp5-85rhrl-766ed649dea1.herokuapp.com']
 
 
 # Application definition

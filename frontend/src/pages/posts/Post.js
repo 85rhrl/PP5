@@ -27,6 +27,9 @@ const Post = (props) => {
     setPosts,
   } = props;
 
+  // line below added by tutor John
+  console.log(profile_image);
+
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
   const history = useHistory();

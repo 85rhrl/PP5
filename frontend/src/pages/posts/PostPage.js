@@ -30,7 +30,8 @@ function PostPage() {
     const handleMount = async () => {
       try {
         const [{ data: post }, { data: comments }] = await Promise.all([
-          axiosReq.get(`/posts/${id}`),
+          // trailing slash at end of line 34 added by tutor John
+          axiosReq.get(`/posts/${id}/`),
           axiosReq.get(`/comments/?post=${id}`),
         ]);
         setPost({ results: [post] });

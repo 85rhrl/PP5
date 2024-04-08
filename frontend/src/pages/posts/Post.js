@@ -28,7 +28,7 @@ const Post = (props) => {
   } = props;
 
   // line below added by tutor John
-  console.log(profile_image);
+  // console.log(profile_image);
 
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;

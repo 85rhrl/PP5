@@ -52,6 +52,16 @@ function App() {
               />
             )}
           />
+          <Route
+            exact
+            path="/wishlist"
+            render={() => (
+              <PostsPage
+                message="No results found. Adjust the search keyword or wishlist a post."
+                filter={`wishlists__owner__profile=${profile_id}&ordering=-wishlists__created_at&`}
+              />
+            )}
+          />
           <Route exact path="/signin" render={() => <SignInForm />} />
           <Route exact path="/signup" render={() => <SignUpForm />} />
           <Route exact path="/posts/create" render={() => <PostCreateForm />} />

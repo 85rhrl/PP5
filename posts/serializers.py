@@ -2,6 +2,7 @@ from rest_framework import serializers
 from posts.models import Post
 from likes.models import Like
 from wishlists.models import Wishlist
+from ownlists.models import Ownlist
 
 
 class PostSerializer(serializers.ModelSerializer):
@@ -14,6 +15,8 @@ class PostSerializer(serializers.ModelSerializer):
     comments_count = serializers.ReadOnlyField()
     wishlist_id = serializers.SerializerMethodField()
     wishlists_count = serializers.ReadOnlyField()
+    ownlist_id = serializers.SerializerMethodField()
+    ownlists_count = serializers.ReadOnlyField()
 
     def validate_image(self, value):
         if value.size > 2 * 1024 * 1024:
@@ -50,6 +53,15 @@ class PostSerializer(serializers.ModelSerializer):
             return wishlist.id if wishlist else None
         return None
 
+    def get_ownlist_id(self, obj):
+        user = self.context['request'].user
+        if user.is_authenticated:
+            ownlist = Ownlist.objects.filter(
+                owner=user, post=obj
+            ).first()
+            return ownlist.id if ownlist else None
+        return None
+
     class Meta:
         model = Post
         fields = [
@@ -57,5 +69,6 @@ class PostSerializer(serializers.ModelSerializer):
             'profile_image', 'created_at', 'updated_at',
             'title', 'content', 'image', 'image_filter',
             'like_id', 'likes_count', 'comments_count',
-            'wishlist_id', 'wishlists_count',
+            'wishlist_id', 'wishlists_count', 'ownlist_id',
+            'ownlists_count',
         ]

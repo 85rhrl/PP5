@@ -21,6 +21,8 @@ const Post = (props) => {
     like_id,
     wishlists_count,
     wishlist_id,
+    ownlists_count,
+    ownlist_id,
     title,
     content,
     image,
@@ -81,6 +83,22 @@ const Post = (props) => {
     }
   };
 
+  const handleOwnlist = async () => {
+    try {
+      const { data } = await axiosRes.post("/ownlists/", { post: id });
+      setPosts((prevPosts) => ({
+        ...prevPosts,
+        results: prevPosts.results.map((post) => {
+          return post.id === id
+            ? { ...post, ownlists_count: post.ownlists_count + 1, ownlist_id: data.id }
+            : post;
+        }),
+      }));
+    } catch (err) {
+      // console.log(err);
+    }
+  };
+
   const handleUnlike = async () => {
     try {
       await axiosRes.delete(`/likes/${like_id}/`);
@@ -105,6 +123,22 @@ const Post = (props) => {
         results: prevPosts.results.map((post) => {
           return post.id === id
             ? { ...post, wishlists_count: post.wishlists_count - 1, wishlist_id: null }
+            : post;
+        }),
+      }));
+    } catch (err) {
+      // console.log(err);
+    }
+  };
+
+  const handleUnownlist = async () => {
+    try {
+      await axiosRes.delete(`/ownlists/${ownlist_id}/`);
+      setPosts((prevPosts) => ({
+        ...prevPosts,
+        results: prevPosts.results.map((post) => {
+          return post.id === id
+            ? { ...post, ownlists_count: post.ownlists_count - 1, ownlist_id: null }
             : post;
         }),
       }));
@@ -194,6 +228,33 @@ const Post = (props) => {
             </OverlayTrigger>
           )}
           {wishlists_count}
+          {ownlist_id ? (
+            <OverlayTrigger
+              placement="top"
+              overlay={<Tooltip>Remove from Ownlist!</Tooltip>}
+            >
+              <span onClick={handleUnownlist}>
+                <i className={`fa-solid fa-square-check ${styles.Heart}`} />
+              </span>
+            </OverlayTrigger>
+          ) : currentUser ? (
+            <OverlayTrigger
+              placement="top"
+              overlay={<Tooltip>Add to Ownlist!</Tooltip>}
+            >
+              <span onClick={handleOwnlist}>
+              <i className={`fa-solid fa-square-check ${styles.HeartOutline}`} />
+              </span>
+            </OverlayTrigger>
+          ) : (
+            <OverlayTrigger
+              placement="top"
+              overlay={<Tooltip>Log in to add to Ownlist!</Tooltip>}
+            >
+              <i className="fa-solid fa-square-check" />
+            </OverlayTrigger>
+          )}
+          {ownlists_count}
         </div>
       </Card.Body>
     </Card>

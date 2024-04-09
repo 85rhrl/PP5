@@ -19,6 +19,8 @@ const Post = (props) => {
     comments_count,
     likes_count,
     like_id,
+    wishlists_count,
+    wishlist_id,
     title,
     content,
     image,
@@ -63,6 +65,22 @@ const Post = (props) => {
     }
   };
 
+  const handleWishlist = async () => {
+    try {
+      const { data } = await axiosRes.post("/wishlists/", { post: id });
+      setPosts((prevPosts) => ({
+        ...prevPosts,
+        results: prevPosts.results.map((post) => {
+          return post.id === id
+            ? { ...post, wishlists_count: post.wishlists_count + 1, wishlist_id: data.id }
+            : post;
+        }),
+      }));
+    } catch (err) {
+      // console.log(err);
+    }
+  };
+
   const handleUnlike = async () => {
     try {
       await axiosRes.delete(`/likes/${like_id}/`);
@@ -71,6 +89,22 @@ const Post = (props) => {
         results: prevPosts.results.map((post) => {
           return post.id === id
             ? { ...post, likes_count: post.likes_count - 1, like_id: null }
+            : post;
+        }),
+      }));
+    } catch (err) {
+      // console.log(err);
+    }
+  };
+
+  const handleUnwishlist = async () => {
+    try {
+      await axiosRes.delete(`/wishlists/${wishlist_id}/`);
+      setPosts((prevPosts) => ({
+        ...prevPosts,
+        results: prevPosts.results.map((post) => {
+          return post.id === id
+            ? { ...post, wishlists_count: post.wishlists_count - 1, wishlist_id: null }
             : post;
         }),
       }));
@@ -133,6 +167,33 @@ const Post = (props) => {
             <i className="far fa-comments" />
           </Link>
           {comments_count}
+          {wishlist_id ? (
+            <OverlayTrigger
+              placement="top"
+              overlay={<Tooltip>I already own it, remove from Wishlist!</Tooltip>}
+            >
+              <span onClick={handleUnwishlist}>
+                <i className={`fa-solid fa-clipboard-list ${styles.Heart}`} />
+              </span>
+            </OverlayTrigger>
+          ) : currentUser ? (
+            <OverlayTrigger
+              placement="top"
+              overlay={<Tooltip>Add to Wishlist!</Tooltip>}
+            >
+              <span onClick={handleWishlist}>
+              <i className={`fa-solid fa-clipboard-list ${styles.HeartOutline}`} />
+              </span>
+            </OverlayTrigger>
+          ) : (
+            <OverlayTrigger
+              placement="top"
+              overlay={<Tooltip>Log in to add to Wishlist!</Tooltip>}
+            >
+              <i className="fa-solid fa-clipboard-list" />
+            </OverlayTrigger>
+          )}
+          {wishlists_count}
         </div>
       </Card.Body>
     </Card>

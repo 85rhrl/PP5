@@ -62,6 +62,16 @@ function App() {
               />
             )}
           />
+          <Route
+            exact
+            path="/ownlist"
+            render={() => (
+              <PostsPage
+                message="No results found. Adjust the search keyword or add a post to your Ownlist."
+                filter={`ownlists__owner__profile=${profile_id}&ordering=-ownlists__created_at&`}
+              />
+            )}
+          />
           <Route exact path="/signin" render={() => <SignInForm />} />
           <Route exact path="/signup" render={() => <SignUpForm />} />
           <Route exact path="/posts/create" render={() => <PostCreateForm />} />

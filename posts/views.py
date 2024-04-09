@@ -17,6 +17,7 @@ class PostList(generics.ListCreateAPIView):
         likes_count=Count('likes', distinct=True),
         comments_count=Count('comment', distinct=True),
         wishlists_count=Count('wishlists', distinct=True), # check this line, might be wishlist
+        ownlists_count=Count('ownlists', distinct=True)
     ).order_by('-created_at')
     filter_backends = [
         filters.OrderingFilter,
@@ -28,6 +29,7 @@ class PostList(generics.ListCreateAPIView):
         'likes__owner__profile',
         'owner__profile',
         'wishlists__owner__profile',
+        'ownlists__owner__profile',
     ]
     search_fields = [
         'owner__username',
@@ -37,8 +39,10 @@ class PostList(generics.ListCreateAPIView):
         'likes_count',
         'comments_count',
         'wishlists_count',
+        'ownlists_count',
         'likes__created_at',
         'wishlists__created_at',
+        'ownlists__created_at',
     ]
 
     def perform_create(self, serializer):
@@ -55,4 +59,5 @@ class PostDetail(generics.RetrieveUpdateDestroyAPIView):
         likes_count=Count('likes', distinct=True),
         comments_count=Count('comment', distinct=True),
         wishlists_count=Count('wishlists', distinct=True), # check this line, might be wishlist
+        ownlists_count=Count('wishlists', distinct=True)
     ).order_by('-created_at')

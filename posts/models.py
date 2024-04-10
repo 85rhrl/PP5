@@ -25,20 +25,20 @@ class Post(models.Model):
     ]
 
     game_genre_choices = [
-        ('action', 'Action'),
-        ('adventure', 'Adventure'),
-        ('mmo', 'MMO'),
-        ('puzzle', 'Puzzle'),
-        ('role-playing', 'Role-playing'),
-        ('simulation', 'Simulation'),
-        ('strategy', 'Strategy'),
-        ('sports', 'Sports')
+        ('Action', 'Action'),
+        ('Adventure', 'Adventure'),
+        ('MMO', 'MMO'),
+        ('Puzzle', 'Puzzle'),
+        ('RPG', 'RPG'),
+        ('Simulation', 'Simulation'),
+        ('Strategy', 'Strategy'),
+        ('Sports', 'Sports')
     ]
 
     game_platform_choices = [
-        ('console', 'Console'),
-        ('mobile', 'Mobile'),
-        ('pc', 'PC')        
+        ('Console', 'Console'),
+        ('Mobile', 'Mobile'),
+        ('PC', 'PC')        
     ]
 
     owner = models.ForeignKey(User, on_delete=models.CASCADE)

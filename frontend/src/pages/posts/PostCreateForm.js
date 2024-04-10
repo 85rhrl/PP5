@@ -115,14 +115,14 @@ function PostCreateForm() {
           value={game_genre}
           onChange={handleChange}
         >
-          <option value="action">Action</option>
-          <option value="adventure">Adventure</option>
-          <option value="mmo">MMO</option>
-          <option value="puzzle">Puzzle</option>
-          <option value="role-playing">Role-playing</option>
-          <option value="simulation">Simulation</option>
-          <option value="strategy">Strategy</option>
-          <option value="sports">Sports</option>
+          <option value="Action">Action</option>
+          <option value="Adventure">Adventure</option>
+          <option value="MMO">MMO</option>
+          <option value="Puzzle">Puzzle</option>
+          <option value="RPG">Role-playing</option>
+          <option value="Simulation">Simulation</option>
+          <option value="Strategy">Strategy</option>
+          <option value="Sports">Sports</option>
         </Form.Control>
       </Form.Group>
       {errors?.game_genre?.map((message, idx) => (
@@ -139,9 +139,9 @@ function PostCreateForm() {
           value={game_platform}
           onChange={handleChange}
         >
-          <option value="console">Console</option>
-          <option value="mobile">Mobile</option>
-          <option value="pc">PC</option>
+          <option value="Console">Console</option>
+          <option value="Mobile">Mobile</option>
+          <option value="PC">PC</option>
         </Form.Control>
       </Form.Group>
       {errors?.game_platform?.map((message, idx) => (

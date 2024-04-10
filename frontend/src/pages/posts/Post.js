@@ -29,6 +29,8 @@ const Post = (props) => {
     updated_at,
     postPage,
     setPosts,
+    game_genre,
+    game_platform,
   } = props;
 
   // line below added by tutor John
@@ -166,12 +168,15 @@ const Post = (props) => {
           </div>
         </Media>
       </Card.Body>
+      <Card.Body>
+        {title && <Card.Title className="text-center">{title}</Card.Title>}
+        {content && <Card.Text>{content}</Card.Text>}
+      </Card.Body>
       <Link to={`/posts/${id}`}>
         <Card.Img src={image} alt={title} />
       </Link>
       <Card.Body>
-        {title && <Card.Title className="text-center">{title}</Card.Title>}
-        {content && <Card.Text>{content}</Card.Text>}
+        {game_genre} game in {game_platform}
         <div className={styles.PostBar}>
           {is_owner ? (
             <OverlayTrigger

@@ -70,5 +70,5 @@ class PostSerializer(serializers.ModelSerializer):
             'title', 'content', 'image', 'image_filter',
             'like_id', 'likes_count', 'comments_count',
             'wishlist_id', 'wishlists_count', 'ownlist_id',
-            'ownlists_count', 'game_genre',
+            'ownlists_count', 'game_genre', 'game_platform',
         ]

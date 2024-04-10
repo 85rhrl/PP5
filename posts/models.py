@@ -27,12 +27,18 @@ class Post(models.Model):
     game_genre_choices = [
         ('action', 'Action'),
         ('adventure', 'Adventure'),
+        ('mmo', 'MMO'),
         ('puzzle', 'Puzzle'),
         ('role-playing', 'Role-playing'),
         ('simulation', 'Simulation'),
         ('strategy', 'Strategy'),
-        ('sports', 'Sports'),
-        ('mmo', 'MMO')
+        ('sports', 'Sports')
+    ]
+
+    game_platform_choices = [
+        ('console', 'Console'),
+        ('mobile', 'Mobile'),
+        ('pc', 'PC')        
     ]
 
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -48,6 +54,9 @@ class Post(models.Model):
     )
     game_genre = models.CharField(
         max_length=32, choices=game_genre_choices, default='action'
+    )
+    game_platform = models.CharField(
+        max_length=32, choices=game_platform_choices, default='action'
     )
 
     class Meta:

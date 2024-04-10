@@ -53,10 +53,10 @@ class Post(models.Model):
         max_length=32, choices=image_filter_choices, default='normal'
     )
     game_genre = models.CharField(
-        max_length=32, choices=game_genre_choices, default='action'
+        max_length=32, choices=game_genre_choices, default='Action'
     )
     game_platform = models.CharField(
-        max_length=32, choices=game_platform_choices, default='action'
+        max_length=32, choices=game_platform_choices, default='Console'
     )
 
     class Meta:

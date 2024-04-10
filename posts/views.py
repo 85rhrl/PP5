@@ -34,6 +34,7 @@ class PostList(generics.ListCreateAPIView):
     search_fields = [
         'owner__username',
         'title',
+        'game_genre',
     ]
     ordering_fields = [
         'likes_count',

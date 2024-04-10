@@ -23,6 +23,18 @@ class Post(models.Model):
         ('walden', 'Walden'),
         ('xpro2', 'X-pro II')
     ]
+
+    game_genre_choices = [
+        ('action', 'Action'),
+        ('adventure', 'Adventure'),
+        ('puzzle', 'Puzzle'),
+        ('role-playing', 'Role-playing'),
+        ('simulation', 'Simulation'),
+        ('strategy', 'Strategy'),
+        ('sports', 'Sports'),
+        ('mmo', 'MMO')
+    ]
+
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -33,6 +45,9 @@ class Post(models.Model):
     )
     image_filter = models.CharField(
         max_length=32, choices=image_filter_choices, default='normal'
+    )
+    game_genre = models.CharField(
+        max_length=32, choices=game_genre_choices, default='action'
     )
 
     class Meta:

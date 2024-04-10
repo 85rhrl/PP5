@@ -67,7 +67,7 @@ class PostSerializer(serializers.ModelSerializer):
         fields = [
             'id', 'owner', 'is_owner', 'profile_id',
             'profile_image', 'created_at', 'updated_at',
-            'title', 'content', 'image', 'image_filter',
+            'title', 'content', 'image', 'game_genre',
             'like_id', 'likes_count', 'comments_count',
             'wishlist_id', 'wishlists_count', 'ownlist_id',
             'ownlists_count',

@@ -28,8 +28,9 @@ function PostCreateForm() {
     title: "",
     content: "",
     image: "",
+    game_genre: "",
   });
-  const { title, content, image } = postData;
+  const { title, content, image, game_genre } = postData;
 
   const imageInput = useRef(null);
   const history = useHistory();
@@ -58,6 +59,7 @@ function PostCreateForm() {
     formData.append("title", title);
     formData.append("content", content);
     formData.append("image", imageInput.current.files[0]);
+    formData.append("game_genre", game_genre);
 
     try {
       const { data } = await axiosReq.post("/posts/", formData);
@@ -98,6 +100,29 @@ function PostCreateForm() {
         />
       </Form.Group>
       {errors?.content?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
+      <Form.Group>
+        <Form.Label>Game Genre</Form.Label>
+        <Form.Control
+          as="select"
+          name="game_genre"
+          value={game_genre}
+          onChange={handleChange}
+        >
+          <option value="action">Action</option>
+          <option value="adventure">Adventure</option>
+          <option value="mmo">MMO</option>
+          <option value="puzzle">Puzzle</option>
+          <option value="role-playing">Role-playing</option>
+          <option value="simulation">Simulation</option>
+          <option value="strategy">Strategy</option>
+          <option value="sports">Sports</option>
+        </Form.Control>
+      </Form.Group>
+      {errors?.game_genre?.map((message, idx) => (
         <Alert variant="warning" key={idx}>
           {message}
         </Alert>

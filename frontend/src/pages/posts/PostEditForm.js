@@ -22,8 +22,10 @@ function PostEditForm() {
     title: "",
     content: "",
     image: "",
+    game_genre: "",
+    game_platform: "",
   });
-  const { title, content, image } = postData;
+  const { title, content, image, game_genre, game_platform } = postData;
 
   const imageInput = useRef(null);
   const history = useHistory();
@@ -33,9 +35,9 @@ function PostEditForm() {
     const handleMount = async () => {
       try {
         const { data } = await axiosReq.get(`/posts/${id}/`);
-        const { title, content, image, is_owner } = data;
+        const { title, content, image, game_genre, game_platform, is_owner } = data;
 
-        is_owner ? setPostData({ title, content, image }) : history.push("/");
+        is_owner ? setPostData({ title, content, image, game_genre, game_platform }) : history.push("/");
       } catch (err) {
         // console.log(err);
       }
@@ -67,6 +69,8 @@ function PostEditForm() {
 
     formData.append("title", title);
     formData.append("content", content);
+    formData.append("game_genre", game_genre);
+    formData.append("game_platform", game_platform);
 
     if (imageInput?.current?.files[0]) {
       formData.append("image", imageInput.current.files[0]);
@@ -86,7 +90,7 @@ function PostEditForm() {
   const textFields = (
     <div className="text-center">
       <Form.Group>
-        <Form.Label>Title</Form.Label>
+        <Form.Label>Game title</Form.Label>
         <Form.Control
           type="text"
           name="title"
@@ -111,6 +115,49 @@ function PostEditForm() {
         />
       </Form.Group>
       {errors?.content?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
+
+<Form.Group>
+        <Form.Label>Genre</Form.Label>
+        <Form.Control
+          as="select"
+          name="game_genre"
+          value={game_genre}
+          onChange={handleChange}
+        >
+          <option value="action">Action</option>
+          <option value="adventure">Adventure</option>
+          <option value="mmo">MMO</option>
+          <option value="puzzle">Puzzle</option>
+          <option value="role-playing">Role-playing</option>
+          <option value="simulation">Simulation</option>
+          <option value="strategy">Strategy</option>
+          <option value="sports">Sports</option>
+        </Form.Control>
+      </Form.Group>
+      {errors?.game_genre?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+        
+      ))}
+      <Form.Group>
+        <Form.Label>Platform</Form.Label>
+        <Form.Control
+          as="select"
+          name="game_platform"
+          value={game_platform}
+          onChange={handleChange}
+        >
+          <option value="console">Console</option>
+          <option value="mobile">Mobile</option>
+          <option value="pc">PC</option>
+        </Form.Control>
+      </Form.Group>
+      {errors?.game_platform?.map((message, idx) => (
         <Alert variant="warning" key={idx}>
           {message}
         </Alert>

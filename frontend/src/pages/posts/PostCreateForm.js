@@ -106,6 +106,7 @@ function PostCreateForm() {
           {message}
         </Alert>
       ))}
+
       <Form.Group>
         <Form.Label>Genre</Form.Label>
         <Form.Control
@@ -128,6 +129,7 @@ function PostCreateForm() {
         <Alert variant="warning" key={idx}>
           {message}
         </Alert>
+        
       ))}
       <Form.Group>
         <Form.Label>Platform</Form.Label>

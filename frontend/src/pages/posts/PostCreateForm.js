@@ -29,8 +29,9 @@ function PostCreateForm() {
     content: "",
     image: "",
     game_genre: "",
+    game_platform: "",
   });
-  const { title, content, image, game_genre } = postData;
+  const { title, content, image, game_genre, game_platform } = postData;
 
   const imageInput = useRef(null);
   const history = useHistory();
@@ -60,6 +61,7 @@ function PostCreateForm() {
     formData.append("content", content);
     formData.append("image", imageInput.current.files[0]);
     formData.append("game_genre", game_genre);
+    formData.append("game_platform", game_platform);
 
     try {
       const { data } = await axiosReq.post("/posts/", formData);
@@ -75,7 +77,7 @@ function PostCreateForm() {
   const textFields = (
     <div className="text-center">
       <Form.Group>
-        <Form.Label>Title</Form.Label>
+        <Form.Label>Game title</Form.Label>
         <Form.Control
           type="text"
           name="title"
@@ -105,7 +107,7 @@ function PostCreateForm() {
         </Alert>
       ))}
       <Form.Group>
-        <Form.Label>Game Genre</Form.Label>
+        <Form.Label>Genre</Form.Label>
         <Form.Control
           as="select"
           name="game_genre"
@@ -123,6 +125,24 @@ function PostCreateForm() {
         </Form.Control>
       </Form.Group>
       {errors?.game_genre?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
+      <Form.Group>
+        <Form.Label>Platform</Form.Label>
+        <Form.Control
+          as="select"
+          name="game_platform"
+          value={game_platform}
+          onChange={handleChange}
+        >
+          <option value="console">Console</option>
+          <option value="mobile">Mobile</option>
+          <option value="pc">PC</option>
+        </Form.Control>
+      </Form.Group>
+      {errors?.game_platform?.map((message, idx) => (
         <Alert variant="warning" key={idx}>
           {message}
         </Alert>

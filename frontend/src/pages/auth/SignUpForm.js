@@ -127,7 +127,7 @@ const SignUpForm = () => {
       >
         <Image
           className={`${appStyles.FillerImage}`}
-          src={"https://codeinstitute.s3.amazonaws.com/AdvancedReact/hero2.jpg"}
+          src={"https://res.cloudinary.com/dgpqn0ewc/image/upload/v1712747903/boysignup_qemq5t.jpg"}
         />
       </Col>
     </Row>

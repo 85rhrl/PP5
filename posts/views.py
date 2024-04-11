@@ -16,7 +16,7 @@ class PostList(generics.ListCreateAPIView):
     queryset = Post.objects.annotate(
         likes_count=Count('likes', distinct=True),
         comments_count=Count('comment', distinct=True),
-        wishlists_count=Count('wishlists', distinct=True), # check this line, might be wishlist
+        wishlists_count=Count('wishlists', distinct=True),
         ownlists_count=Count('ownlists', distinct=True)
     ).order_by('-created_at')
     filter_backends = [
@@ -60,6 +60,6 @@ class PostDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Post.objects.annotate(
         likes_count=Count('likes', distinct=True),
         comments_count=Count('comment', distinct=True),
-        wishlists_count=Count('wishlists', distinct=True), # check this line, might be wishlist
-        ownlists_count=Count('wishlists', distinct=True)
+        wishlists_count=Count('wishlists', distinct=True),
+        ownlists_count=Count('ownlists', distinct=True)
     ).order_by('-created_at')

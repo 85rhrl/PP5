@@ -73,3 +73,17 @@ Visit the deployed Game Check website here: [https://pp5-85rhrl-766ed649dea1.her
     - To be able to create a post, follow other users, comment on posts as well as liking a post, wishlist or ownlist a game, the site visitor must create an account.
 
     ![Comments](docs/images/07signup.png)
+
+### Features Left to Implement
+
+- __Add a messaging app so users can chat in realtime.__
+
+## Technologies used
+
+### Languages
+- __Python__ - Used for the DRF backend functionality.
+- __React.js__ - Used for frontend functionality.
+- __HTML5__ - Used for the structure and content of the frontend.
+- __JavaScript__ - Used for enhanced interactivity on the frontend.
+- __CSS3__ - Used for the styling of the frontend.
+

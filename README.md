@@ -92,3 +92,22 @@ Visit the deployed Game Check website here: [https://pp5-85rhrl-766ed649dea1.her
 - __Heroku__ - Used for deploying the website.
 - __Cloudinary__ - Used for storing the images.
 - __DRF__ - Django Rest Framework used for building the API in the backend.
+
+## Testing
+
+### Validator testing
+
+- __HTML__
+    - The HTML code was tested using the W3C Markup Validator and no errors were found.
+            ![HTML checker](docs/images/09htmlchecker.png)
+
+- __CSS__
+    - The CSS code was tested using the CSS Validation Service and no errors were found.
+            ![CSS checker](docs/images/10csschecker.png)
+
+- __JavaScript__
+    - The JavaScript code was tested using the JSHint static code analysis tool and no errors were found.
+
+- __Python__
+    - The code was passed through the Code Institute's PEP8 Python Linter with no errors found.
+

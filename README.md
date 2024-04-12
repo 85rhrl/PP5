@@ -140,9 +140,11 @@ The code is based on the DRF and Moments walkthrough project from Code Institute
 
 The Gamepad emoji for the favicon was downloaded from [favicon.io](https://favicon.io/) which in turn comes from the open source project Twemoji. The graphics are copyright 2020 Twitter, Inc and other contributors. The graphics are licensed under CC-BY 4.0.
 
-The icons used for the links in the Nav Bar and below every post were taken from [fontawesome.com](https://fontawesome.com/)
+The icons used for the links in the Nav Bar and below every post were taken from [fontawesome.com](https://fontawesome.com/).
 
-The font was downloaded from [Google Fonts](https://fonts.google.com/)
+The images for upload media and no results found were downloaded from [Flat Icon](https://www.flaticon.com/).
+
+The font was downloaded from [Google Fonts](https://fonts.google.com/).
 
 ### Media
 
@@ -155,3 +157,4 @@ I would like to express my gratitude to the following people:
 - Jubril Akolade for mentoring me, giving me guidance and encouragement.
 - Kay Welfare for their continuous help and encouragement.
 - My fellow classmates for their support and feedback.
+- Last but not least to my lovely wife for taking care of our newborn baby and our daughter.

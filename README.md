@@ -123,3 +123,15 @@ Lighthouse is an open-source automated tool to audit a page based on its Perform
 ### Unfixed Bugs
 
 No Bugs were left unfixed.
+
+## Deployment
+GitHub and Heroku were used to deploy Battleship:
+
+1. Fork or clone the [github.com/85rhrl/PP5](https://github.com/85rhrl/PP5) repository.
+2. Create a new [Heroku](https://www.heroku.com/) app.
+3. From the _Settings_ tab in Heroku:
+    - Add the `heroku/python` and `heroku/nodejs` buildpacks.
+    - Create a _Config Var_ called `PORT` and set it to `8000`.
+4. Connect the Heroku app to the repository from Step 1.
+5. Click on _Deploy_
+

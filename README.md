@@ -87,3 +87,8 @@ Visit the deployed Game Check website here: [https://pp5-85rhrl-766ed649dea1.her
 - __JavaScript__ - Used for enhanced interactivity on the frontend.
 - __CSS3__ - Used for the styling of the frontend.
 
+### Tools & Frameworks
+- __Github__ - Used for version control, bug reporting and hosting the repository.
+- __Heroku__ - Used for deploying the website.
+- __Cloudinary__ - Used for storing the images.
+- __DRF__ - Django Rest Framework used for building the API in the backend.

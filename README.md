@@ -135,3 +135,23 @@ GitHub and Heroku were used to deploy Battleship:
 4. Connect the Heroku app to the repository from Step 1.
 5. Click on _Deploy_
 
+## Credits
+The code is based on the DRF and Moments walkthrough project from Code Institute.
+
+The Gamepad emoji for the favicon was downloaded from [favicon.io](https://favicon.io/) which in turn comes from the open source project Twemoji. The graphics are copyright 2020 Twitter, Inc and other contributors. The graphics are licensed under CC-BY 4.0.
+
+The icons used for the links in the Nav Bar and below every post were taken from [fontawesome.com](https://fontawesome.com/)
+
+The font was downloaded from [Google Fonts](https://fonts.google.com/)
+
+### Media
+
+The images were downloaded from [Pexels](https://www.pexels.com/).
+
+### Acknowledgements
+
+I would like to express my gratitude to the following people:
+
+- Jubril Akolade for mentoring me, giving me guidance and encouragement.
+- Kay Welfare for their continuous help and encouragement.
+- My fellow classmates for their support and feedback.

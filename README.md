@@ -113,5 +113,13 @@ Visit the deployed Game Check website here: [https://pp5-85rhrl-766ed649dea1.her
 
 ### Lighthouse
 
-Lighthouse is an open-source automated tool to audit a page based on its Performance, Accessibility, Best Practices and Search Engine Optimization (SEO). This audit was performed and the results were good as seen below.
+Lighthouse is an open-source automated tool to audit a page based on its Performance, Accessibility, Best Practices and Search Engine Optimization (SEO). This audit was performed and the results are shown below.
     ![lighthouse-desktop-index](docs/images/08lighthouse.png)
+
+### Manual Testing
+
+![manual-testing](docs/images/11manualtesting.png)
+
+### Unfixed Bugs
+
+No Bugs were left unfixed.

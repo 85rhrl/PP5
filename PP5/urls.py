@@ -13,28 +13,29 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
 from django.contrib import admin
 from django.urls import path, include
 from django.views.generic import TemplateView
 from .views import logout_route
 
 urlpatterns = [
-    path('', TemplateView.as_view(template_name='index.html')),
-    path('admin/', admin.site.urls),
-    path('api/api-auth/', include('rest_framework.urls')),
+    path("", TemplateView.as_view(template_name="index.html")),
+    path("admin/", admin.site.urls),
+    path("api/api-auth/", include("rest_framework.urls")),
     # our logout route has to be above the default one to be matched first
-    path('api/dj-rest-auth/logout/', logout_route),
-    path('api/dj-rest-auth/', include('dj_rest_auth.urls')),
+    path("api/dj-rest-auth/logout/", logout_route),
+    path("api/dj-rest-auth/", include("dj_rest_auth.urls")),
     path(
-        'api/dj-rest-auth/registration/', include('dj_rest_auth.registration.urls')
+        "api/dj-rest-auth/registration/", include("dj_rest_auth.registration.urls")
     ),
-    path('api/', include('profiles.urls')),
-    path('api/', include('posts.urls')),
-    path('api/', include('comments.urls')),
-    path('api/', include('likes.urls')),
-    path('api/', include('followers.urls')),
-    path('api/', include('wishlists.urls')),
-    path('api/', include('ownlists.urls')),
+    path("api/", include("profiles.urls")),
+    path("api/", include("posts.urls")),
+    path("api/", include("comments.urls")),
+    path("api/", include("likes.urls")),
+    path("api/", include("followers.urls")),
+    path("api/", include("wishlists.urls")),
+    path("api/", include("ownlists.urls")),
 ]
 
-handler404 = TemplateView.as_view(template_name='index.html')
+handler404 = TemplateView.as_view(template_name="index.html")

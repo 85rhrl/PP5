@@ -129,7 +129,6 @@ function PostCreateForm() {
         <Alert variant="warning" key={idx}>
           {message}
         </Alert>
-        
       ))}
       <Form.Group>
         <Form.Label>Platform</Form.Label>

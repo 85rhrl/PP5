@@ -33,9 +33,6 @@ const Post = (props) => {
     game_platform,
   } = props;
 
-  // line below added by tutor John
-  // console.log(profile_image);
-
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
   const history = useHistory();
@@ -76,7 +73,11 @@ const Post = (props) => {
         ...prevPosts,
         results: prevPosts.results.map((post) => {
           return post.id === id
-            ? { ...post, wishlists_count: post.wishlists_count + 1, wishlist_id: data.id }
+            ? {
+                ...post,
+                wishlists_count: post.wishlists_count + 1,
+                wishlist_id: data.id,
+              }
             : post;
         }),
       }));
@@ -92,7 +93,11 @@ const Post = (props) => {
         ...prevPosts,
         results: prevPosts.results.map((post) => {
           return post.id === id
-            ? { ...post, ownlists_count: post.ownlists_count + 1, ownlist_id: data.id }
+            ? {
+                ...post,
+                ownlists_count: post.ownlists_count + 1,
+                ownlist_id: data.id,
+              }
             : post;
         }),
       }));
@@ -124,7 +129,11 @@ const Post = (props) => {
         ...prevPosts,
         results: prevPosts.results.map((post) => {
           return post.id === id
-            ? { ...post, wishlists_count: post.wishlists_count - 1, wishlist_id: null }
+            ? {
+                ...post,
+                wishlists_count: post.wishlists_count - 1,
+                wishlist_id: null,
+              }
             : post;
         }),
       }));
@@ -140,7 +149,11 @@ const Post = (props) => {
         ...prevPosts,
         results: prevPosts.results.map((post) => {
           return post.id === id
-            ? { ...post, ownlists_count: post.ownlists_count - 1, ownlist_id: null }
+            ? {
+                ...post,
+                ownlists_count: post.ownlists_count - 1,
+                ownlist_id: null,
+              }
             : post;
         }),
       }));
@@ -209,7 +222,9 @@ const Post = (props) => {
           {wishlist_id ? (
             <OverlayTrigger
               placement="top"
-              overlay={<Tooltip>I already own it, remove from Wishlist!</Tooltip>}
+              overlay={
+                <Tooltip>I already own it, remove from Wishlist!</Tooltip>
+              }
             >
               <span onClick={handleUnwishlist}>
                 <i className={`fa-solid fa-clipboard-list ${styles.Heart}`} />
@@ -221,7 +236,9 @@ const Post = (props) => {
               overlay={<Tooltip>Add to Wishlist!</Tooltip>}
             >
               <span onClick={handleWishlist}>
-              <i className={`fa-solid fa-clipboard-list ${styles.HeartOutline}`} />
+                <i
+                  className={`fa-solid fa-clipboard-list ${styles.HeartOutline}`}
+                />
               </span>
             </OverlayTrigger>
           ) : (
@@ -248,7 +265,9 @@ const Post = (props) => {
               overlay={<Tooltip>Add to Ownlist!</Tooltip>}
             >
               <span onClick={handleOwnlist}>
-              <i className={`fa-solid fa-square-check ${styles.HeartOutline}`} />
+                <i
+                  className={`fa-solid fa-square-check ${styles.HeartOutline}`}
+                />
               </span>
             </OverlayTrigger>
           ) : (

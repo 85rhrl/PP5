@@ -8,6 +8,7 @@ class OwnlistList(generics.ListCreateAPIView):
     """
     List ownlists or create a ownlist if logged in.
     """
+
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     serializer_class = OwnlistSerializer
     queryset = Ownlist.objects.all()
@@ -20,6 +21,7 @@ class OwnlistDetail(generics.RetrieveDestroyAPIView):
     """
     Retrieve a ownlist or delete it by id if you own it.
     """
+
     permission_classes = [IsOwnerOrReadOnly]
     serializer_class = OwnlistSerializer
     queryset = Ownlist.objects.all()

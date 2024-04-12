@@ -8,11 +8,12 @@ class WishlistSerializer(serializers.ModelSerializer):
     Serializer for the Wishlist model
     The create method handles the unique constraint on 'owner' and 'post'
     """
-    owner = serializers.ReadOnlyField(source='owner.username')
+
+    owner = serializers.ReadOnlyField(source="owner.username")
 
     class Meta:
         model = Wishlist
-        fields = ['id', 'created_at', 'owner', 'post']
+        fields = ["id", "created_at", "owner", "post"]
 
     def create(self, validated_data):
         try:

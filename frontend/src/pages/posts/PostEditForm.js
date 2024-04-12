@@ -35,9 +35,12 @@ function PostEditForm() {
     const handleMount = async () => {
       try {
         const { data } = await axiosReq.get(`/posts/${id}/`);
-        const { title, content, image, game_genre, game_platform, is_owner } = data;
+        const { title, content, image, game_genre, game_platform, is_owner } =
+          data;
 
-        is_owner ? setPostData({ title, content, image, game_genre, game_platform }) : history.push("/");
+        is_owner
+          ? setPostData({ title, content, image, game_genre, game_platform })
+          : history.push("/");
       } catch (err) {
         // console.log(err);
       }
@@ -120,7 +123,7 @@ function PostEditForm() {
         </Alert>
       ))}
 
-<Form.Group>
+      <Form.Group>
         <Form.Label>Genre</Form.Label>
         <Form.Control
           as="select"
@@ -142,7 +145,6 @@ function PostEditForm() {
         <Alert variant="warning" key={idx}>
           {message}
         </Alert>
-        
       ))}
       <Form.Group>
         <Form.Label>Platform</Form.Label>

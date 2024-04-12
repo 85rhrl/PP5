@@ -111,3 +111,7 @@ Visit the deployed Game Check website here: [https://pp5-85rhrl-766ed649dea1.her
 - __Python__
     - The code was passed through the Code Institute's PEP8 Python Linter with no errors found.
 
+### Lighthouse
+
+Lighthouse is an open-source automated tool to audit a page based on its Performance, Accessibility, Best Practices and Search Engine Optimization (SEO). This audit was performed and the results were good as seen below.
+    ![lighthouse-desktop-index](docs/images/08lighthouse.png)
